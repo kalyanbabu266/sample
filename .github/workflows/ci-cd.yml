@@ -44,4 +44,23 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - n
+      - name: Run tests
+        run: |
+          if [ -f package.json ] && jq -e '.scripts.test' package.json > /dev/null; then
+            npm test
+          else
+            echo "No test script found, skipping tests."
+          fi
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    if: ${{ github.ref == 'refs/heads/main' }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy step (placeholder)
+        run: |
+          echo "Deploying your app..."
+          # Add your real deploy commands here
