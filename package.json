@@ -1,4 +1,8 @@
-"scripts": {
-  "build": "your-build-command",   // e.g. react-scripts build
-  "test": "your-test-command"      // e.g. jest, mocha
+{
+  "name": "sample",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "echo 'No build step'",
+    "test": "echo 'No tests'"
+  }
 }
